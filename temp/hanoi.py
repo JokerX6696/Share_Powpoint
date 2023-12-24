@@ -5,18 +5,18 @@ cengshu = 3
 
 move_counts = 0
 
-def hanio(n,A,B,C):
+def hanio(n,source, auxiliary, target):
     global move_counts
     if n == 1:
-        print(A,"-->",C)
+        print(source,"-->",target)
         move_counts += 1
     else:
-        hanio(n-1,A,C,B)
-        print(A,"-->",C)
+        hanio(n-1,source='A',auxiliary='C',target='B')
+        print(source,"-->",target)
         move_counts += 1
-        hanio(n-1,B,A,C)
+        hanio(n-1,source=auxiliary,auxiliary=source,target=target)
 
 
-hanio(cengshu,'A','B','C')
+hanio(cengshu,source='A',auxiliary='B',target='C')
 
 print('需要移动的次数为 %d' %move_counts)
