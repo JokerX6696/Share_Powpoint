@@ -21,3 +21,20 @@ def frog_jump(n):
 n = 5
 result = frog_jump(n)
 print(f"青蛙跳上 {n} 级台阶的跳法有 {result} 种")
+
+
+# 添加递归法
+def frog_jump_recursive(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    else:
+        return frog_jump_recursive(n - 1) + frog_jump_recursive(n - 2)
+
+# 测试
+n = 4
+result = frog_jump_recursive(n)
+print(f"青蛙跳上 {n} 级台阶的跳法有 {result} 种")
