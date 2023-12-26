@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//  windows 缺乏编译环境
 int main()
 {
 
