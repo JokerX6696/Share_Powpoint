@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>monocle</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='monocle-2'><span>monocle 2</span></h1><h2 id='reversed-graph-embedding-resolves-complex-single-cell-trajectories'><span>《</span><strong><span>Reversed graph embedding resolves complex single-cell</span></strong><span> trajectories》</span></h2><h4 id='nature-methods第14卷第10期-2017年'><span>《Nature Methods》第14卷第10期 2017年</span></h4><h2 id='介绍'><span>介绍</span></h2><p><span>        大多数细胞状态转换，无论是在发育、重编程还是疾病过程中，都以基因表达变化的级联为特征。我们最近引入了一种称为“</span><strong><span>伪时间排序</span></strong><span>”的生物信息学技术，该技术将</span><strong><span>机器学习</span></strong><span>应用于单细胞转录组测序（RNA-Seq）数据，按进展顺序对细胞进行排序，并重建它们在分化或经历其他类型生物学转换时的“轨迹”。尽管人们努力开发可扩展、准确的伪时间重建算法（最近在2中进行了回顾），但现有工具有几个主要限制。大多数伪时间方法只能重建线性轨迹，而其他方法如Wishbone3 或 DPT4 支持分支识别，但它们要么无法在轨迹中识别多个分支点，要么要求用户指定分支和细胞命运的数量作为输入参数。</span></p><p><span>在这里，我们描述了Monocle 2（补充软件和</span><a href='https://github.com/cole-trapnelllab/monocle-release' target='_blank' class='url'>https://github.com/cole-trapnelllab/monocle-release</a><span>），它应用了</span><strong><span>反向图嵌入（RGE）</span></strong><span>，这是一种最近开发的机器学习策略，以准确重建复杂的单细胞轨迹。Monocle 2不需要关于特征化生物过程的基因、轨迹中的细胞命运或分支点数量的先验信息，也不需要实验设计的输入。Monocle 2不仅优于其前一个版本，而且也优于最近开发的方法，产生了更准确、更稳健的轨迹。</span></p><hr /><p>&nbsp;</p><h2 id='图graph）'><span>图（Graph）</span></h2><p>&nbsp;</p><blockquote><p><span>反向图嵌入（RGB）Reverse Graph Embedding 算法可以看作</span><strong><span>图嵌入</span></strong><span>的逆过程。  </span></p></blockquote><p>&nbsp;</p><h3 id='为什么是-graph-而不是-figure'><span>为什么是 graph 而不是 figure？</span></h3><ol start='' ><li><p><strong><span>Figure</span></strong><span>：</span></p><ul><li><p><span>&quot;Figure&quot; 通常指的是在文档、报告或书籍中的插图、图表或图片。它是一个通用术语，用于表示任何类型的图形或图像。在学术文献中，&quot;figure&quot; 可能包括照片、图表、图形、示意图等。例如，在科学论文中，一个 &quot;figure&quot; 可能是实验结果的图表或者实验装置的示意图。</span></p></li></ul></li><li><p><strong><span>Graph</span></strong><span>：</span></p><ul><li><p><span>&quot;Graph&quot; 通常用于表示图论中的数学结构，它由节点（vertex）和连接节点的边（edge）组成。在这个意义上，&quot;graph&quot; 可以指代各种类型的图，如有向图（directed graph）、无向图（undirected graph）、加权图（weighted graph）等。在计算机科学和数学领域，&quot;graph&quot; 是一个具体的数学概念。</span></p></li></ul></li></ol><p><img src="./photo/graph.png" referrerpolicy="no-referrer" alt="graph"></p><h4 id='图嵌入的应用'><span>图嵌入的应用</span></h4><p><img src="./photo/tqr.png" referrerpolicy="no-referrer" alt="tqr"></p><blockquote><p><span>细胞性质相似与用户相互认识之间具有趋向性</span></p></blockquote><hr /><p>&nbsp;</p><h4 id='工作中图嵌入的例子-cellchat'><span>工作中图嵌入的例子 cellchat</span></h4><p><span>cellchat 最终将图 转化为低维向量</span></p><p><img src="./photo/cellchat.png" referrerpolicy="no-referrer" alt="cellchat"></p><blockquote><p><span>cellchat 的表现形式很像图嵌入，严格来说并不是图嵌入。</span></p><p><span>图嵌入经典算法 Node2Vec和DeepWalk 有兴趣可以了解一下，当前推荐 可能认识的人 很多算法都来自图嵌入</span></p></blockquote><h4 id='工作中比较有代表性的反向图嵌入'><span>工作中比较有代表性的反向图嵌入：</span></h4><blockquote><p><span>云平台 网络图交互</span></p></blockquote><p>&nbsp;</p><p><img src="./photo/graph2.png" referrerpolicy="no-referrer" alt="graph2"></p><p><img src="./photo/graph1.png" referrerpolicy="no-referrer" alt="graph1"></p><h2 id='reversed-graph-embedding-实现'><strong><span>Reversed graph embedding</span></strong><span> 实现</span></h2><p><span>Monocle 2 使用了一种称为反向图嵌入（Reversed Graph Embedding，RGE）的技术来学习描述单细胞实验的图结构。RGE 同时学习了代表细胞轨迹的主要图，以及一个将轨迹上的点（嵌入到低维空间中）映射回原始高维空间的函数。RGE 的目标是学习一组潜在点，这些点能够同时捕捉细胞的轨迹和其在高维空间中的原始特征。</span></p><p><img src="./photo/z.png" referrerpolicy="no-referrer" alt="z"></p><p><span>这里的N是指集合的数量（或者细胞的数量），以及连接这些潜在点的无向图 Y。</span></p><blockquote><p><span>低维空间中潜在的点 对应了高纬度空间中的输入数据 X！这里的每一个 x 都是一个向量，对应了高变基因，每个高变基因都是一个维度</span></p></blockquote><p><img src="./photo/X.png" referrerpolicy="no-referrer" alt="X"></p><p>&nbsp;</p><p><img src="./photo/Y.png" referrerpolicy="no-referrer" alt="Y"></p><p><span>图Y包含一组顶点 V 和一组加权的无向边 E ，其中每个 V 对应于潜在点 Z ，因此该图也存在于潜在的低维空间中。</span></p><p><span>在单细胞轨迹构建问题的背景下，X通常是单细胞RNA测序实验中第i个细胞的特征基因表达值的向量（例如，基于dpFeature选择），Y 是学习到的轨迹（例如，一棵树），沿着这条轨迹细胞转移，z是对应于细胞的轨迹上的主要点。</span></p><p><span>RGE学习了图Y以及一个将其映射回输入数据空间的函数。让Bji表示边(Vi,Vj)的权重，它代表了Zi和Zj之间的连通性。</span></p><p><span>换句话说，Bji &gt; 0 表示边(Vi,Vj)在图Y中存在，否则为0。</span></p><blockquote><p><span>意味着 并不是所有的细胞特征都会彼此相连</span></p></blockquote><p><span>将fY定义为从Y到高维空间中某一点的投影函数。为了学习Y、Z和fY，我们需要优化以下目标函数：</span></p><p><span>其中，Gb是一组可行的图结构参数集合，参数化为{Bi,j，Ai,j}，F是一组将潜在的低维点映射到原始高维空间中的函数。</span></p><p>&nbsp;</p><p><img src="./photo/gs1.png" referrerpolicy="no-referrer" alt="gs1"></p><blockquote><p><span>在数学中，一个求和符号左边有三个&quot;min&quot;的情况通常表示通过最小化三个不同的目标函数来解决一个多目标优化问题。这种情况下，我们试图找到一组参数，使得这三个目标函数都能达到最小值。这种方法称为多目标优化或多目标优化。</span></p><p><span>通过权重 降维后潜在点的欧氏距离平方与权重的乘积 求和 使得最小化三个不同目标函数</span></p></blockquote><p><span>上述优化将学习潜在空间中的图结构，但它并没有衡量潜在点与观察到的数据之间的偏差。换句话说，没有努力确保图节点以与观察到的数据点云相关的方式嵌入。为了确保图描述了观察数据的整体结构，RGE旨在定位潜在点，使它们在函数下的映像（即它们在高维空间中的相应位置）接近于输入数据，同时也确保低维主要图上的相邻点在输入维度中是“相邻的”。优化问题被构建为：</span></p><p><img src="./photo/gs2.png" referrerpolicy="no-referrer" alt="gs2"></p><blockquote><p><span>通过映射关系可见 新公式 低维度 潜在点Z 通过f 函数映射回高纬度空间，在高纬度空间计算欧氏距离 并与 低纬度空间欧氏距离累加计算</span></p><p><span>其中λ是一个参数，用于调整这两个求和的相对强度（属于参数的范畴）。在实践中，实现反向图嵌入需要我们对Gb和f加以一些约束，如下面简要总结的部分所述。</span></p></blockquote><hr /><p>&nbsp;</p><h3 id='simpleppt'><span>SimplePPT</span></h3><blockquote><p><span>monocle2 采用的并不是SimplePPT 算法 而是 DDRtree 算法，文章中提到该算法是因为 DDRtree 是基于 SimplePPT 算法思想进行的开发！</span></p></blockquote><p><span>SimplePPT（Simple Principal Tree）是一种用于学习数据点集的主要图（principal graph）的机器学习算法。它是反向图嵌入（Reversed Graph Embedding, RGE）技术的一种实现。SimplePPT的目标是在不依赖于数据点在原始空间中的确切位置的情况下，学习一个树形结构，这个树形结构能够捕捉数据点之间的相似性和差异性。</span></p><p><span>在SimplePPT中，主要图是一个无向图，其中包含一组顶点（代表数据点）和边（代表数据点之间的关系）。这个图通常是通过以下步骤构建的：</span></p><ol start='' ><li><p><strong><span>降维</span></strong><span>：首先，高维数据通过降维技术（如主成分分析PCA）映射到一个低维空间。</span></p></li><li><p><strong><span>聚类</span></strong><span>：在低维空间中，算法识别出一组聚类中心，这些中心代表了数据点的集合。</span></p></li><li><p><strong><span>构建树</span></strong><span>：算法通过连接聚类中心来构建一个</span><strong><span>最小生成树</span></strong><span>，这个树的结构反映了数据点之间的相似性。</span></p></li><li><p><strong><span>优化</span></strong><span>：通过优化过程，算法调整聚类中心的位置，使得它们更好地拟合原始数据点，同时保持树的结构。</span></p></li></ol><p><span>SimplePPT的关键特点是它简化了优化问题，将图的顶点和边的权重作为一个单一的变量进行优化。此外，它使用经验量化误差作为损失函数，这是衡量低维表示和其对应观测点之间差异的指标。通过这种方式，SimplePPT能够有效地学习数据的主要结构，而不需要对数据的全局结构有先验知识。</span></p><p><span>在Monocle 2中，SimplePPT是用于学习单细胞RNA测序数据的主要图的算法之一。它有助于识别细胞状态转换的轨迹，并揭示细胞分化过程中的关键事件和决策点。通过这种方式，SimplePPT为理解复杂的生物过程和细胞命运决策提供了强大的工具。</span></p><hr /><p>&nbsp;</p><h3 id='the-principal-l1-graph-algorithm'><strong><span>The principal</span></strong><span> L1 graph algorithm</span></h3><p><span>针对samplePPT 进行优化的反向图嵌入算法，原理类似</span></p><hr /><h3 id='ddrtree-discriminative-dimensionality-reduction-via-learning-a-tree'><span>DDRTree: Discriminative dimensionality reduction via learning a tree </span></h3><p><span>DDRTree是Monocle 2默认使用的RGE技术，它提供了两个SimplePPT学习框架所没有的关键特性。首先，DDRTree不假设图存在于输入空间中，并且可以在学习轨迹的同时降低其维度。其次，它也不要求图中每个数据点都有一个节点，这大大加速了算法并减少了内存占用。</span></p><p><span>与SimplePPT类似，DDRTree为每个细胞学习了一个潜在点，同时学习了一个线性投影函数f(z)=Wz，其中W=[w1,w2.....wd] ∈R</span><sup><span>D×d</span></sup><span>是一个矩阵，其列形成一个正交基W{W1,W2,...,Wd}（D是特征基因的维度，而d 是潜在空间的维度）。DDRTree同时学习了第二组潜在点Y上的图。</span></p><ol start='' ><li><p><strong><span>构建主图（Principal Graph）</span></strong><span>：Monocle 2算法首先通过无监督学习的方式构建一个主图。这个主图是一个低维的、有向的图结构，它能够捕捉到单细胞数据中的主要变化趋势和细胞状态的转换路径。</span></p></li><li><p><strong><span>图嵌入（Graph Embedding）</span></strong><span>：在构建了主图之后，算法会对每个单细胞进行图嵌入，即将每个细胞映射到主图上的一个点。这个映射过程是基于细胞的高维特征数据来进行的，目的是在低维空间中找到最能代表该细胞状态的位置。</span></p></li><li><p><strong><span>移动点以匹配主图</span></strong><span>：在所有细胞都被映射到主图上的相应位置后，算法会进一步调整这些点的位置，使得它们更紧密地对应于主图中的细胞状态转换路径。这个过程可能涉及到对点的位置进行微调，以确保它们不仅能够反映单个细胞的状态，还能够反映出细胞之间的转换关系。</span></p></li><li><p><strong><span>优化过程</span></strong><span>：为了确保映射的准确性和稳健性，算法可能会采用一些优化技术，比如最小化重构误差或者最大化数据点在低维空间中的局部结构保持性。这样可以确保主图中的每个点都能够尽可能准确地代表原始高维空间中的细胞状态。</span></p></li></ol><p>&nbsp;</p><p><span>在Monocle 2中，提供了一个自动选择K值的过程，该过程应基于实验中细胞数量 N，对各种数据集都能很好地工作。</span></p><blockquote><p><span>K &lt;= N</span></p></blockquote><p><span>在第一次优化迭代中，这K个中心点是通过在低维空间中使用 k-medoids聚类来初始化的。</span></p><p><img src="./photo/K.png" referrerpolicy="no-referrer" alt="K"></p><hr /><h3 id='pseudotime-calculation-and-branch-assignment'><span>Pseudotime calculation and branch assignment</span></h3><p><span>在文章中提到的 </span><strong><span>伪时间计算和分支分配</span></strong><span> 部分讨论了如何使用Monocle 2进行伪时间（pseudotime）计算和分支分配。这是单细胞分析中的关键步骤，用于重建和理解细胞随时间或不同状态转换的动态过程。以下是该部分的主要内容概述：</span></p><ol start='' ><li><p><strong><span>伪时间计算</span></strong><span>：伪时间是一种度量，用于在无时间标签的单细胞数据中推断细胞状态转换的顺序。Monocle 2通过在主要图（如由DDRTree学习得到的）上计算每个细胞到根节点的最短路径长度（即最小生成树的边的数量）来分配伪时间。这个过程假设细胞在分化过程中沿着主要图的路径逐渐变化，伪时间反映了细胞在这条路径上的位置。</span></p></li><li><p><strong><span>分支分配</span></strong><span>：Monocle 2通过深度优先搜索（DFS）遍历主要图，识别分支点，并将每个细胞分配到特定的分支或轨迹段上。分支点是细胞命运决策的点，细胞在这些点上可能分化成不同的细胞类型或状态。通过这种方式，Monocle 2能够揭示复杂的细胞分化路径和决策点。</span></p></li><li><p><strong><span>主要图的学习</span></strong><span>：Monocle 2首先调用DDRTree算法来学习描述单细胞实验的主要树。这个树的顶点是细胞群的聚类中心，边表示聚类中心之间的连接。</span></p></li><li><p><strong><span>投影和最小生成树</span></strong><span>：为了计算伪时间，Monocle 2将细胞的低维表示投影到主要图上，并在聚类中心形成的最小生成树上构建伪时间。这个过程涉及到找到每个细胞在树上最近的位置，并计算到根节点的最短路径。</span></p></li><li><p><strong><span>分支结构的编码</span></strong><span>：Monocle 2通过递归地遍历主要树来编码每个细胞在分支结构中的位置，并为每个细胞分配一个轨迹段。这个过程还涉及到递增一个段计数器，每当遇到新的分支点时。</span></p></li><li><p><strong><span>准确性和稳健性的评估</span></strong><span>：文章还讨论了如何评估伪时间分配和分支分配的准确性和稳健性。这通常涉及到将Monocle 2的结果与已知的生物学标记或实验验证的结果进行比较。</span></p></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><img src="./photo/monocle.png" referrerpolicy="no-referrer" alt="monocle"></p><p><span>图 1. Monocle 2 发现肌母细胞分化中的隐蔽替代结果 (A) Monocle 2 通过反向图嵌入学习单细胞轨迹。每个细胞可以表示为高维空间中的一个点，其中每个维度对应于一个排序基因的表达水平。首先，高维数据通过多种降维方法（如PCA（默认）、扩散图等）投影到一个低维空间（Z）。然后，Monocle 2 在自动选择的数据质心集合上构建一个最小生成树。质心的数量（黑色菱形）是根据细胞数量的亚线性比例确定的。这些质心是通过在初始化的低维空间中使用k-medoids聚类自动选择的。然后，算法将细胞移向它们在树上最近的顶点，更新顶点的位置以“适应”细胞，学习一个新的最小生成树，并迭代地继续这个过程，直到树和细胞的位置收敛（参见方法中的方程3）。在整个过程中，Monocle 2 保持高维空间和低维空间之间的可逆映射，从而既学习了轨迹又减少了数据的维度。实际上，该算法在点Z上充当软K均值聚类，将它们映射到质心，并共同学习质心上的图。一旦Monocle 2 学习了树，用户选择一个尖端作为“根”。每个细胞的伪时间被计算为其沿树到根的测地线距离，并且根据主图自动分配其分支。 (B) Monocle 1 重建了分化的人类骨骼肌母细胞（HSMM）的线性轨迹。 (C) Monocle 2 自动学习了潜在的轨迹，并检测到24-72小时的细胞分为两个分支。Monocle 1 和 Monocle 2 都使用了dpFeature（补充图1；方法）选择的相同基因进行排序。 (D) 在Paul 数据集上，每个算法在重复抽取80%的细胞样本下的伪时间计算或分支分配的准确性。使用基于标记的排序（见方法）作为每个软件结果的基准进行比较。 (E) 在Paul 数据集上，每个算法在重复抽取80%的细胞样本下的伪时间计算或分支分配的一致性。所有成对的下采样都用来计算皮尔逊相关系数（Pearson&#39;s Rho）和调整后的Rand指数（ARI）。Monocle 2、DPT和Wishbone都使用完整数据集进行基准测试，而Monocle 1只使用随机下采样的300个细胞进行基准测试。</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
